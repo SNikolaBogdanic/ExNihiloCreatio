@@ -22,3 +22,6 @@ eclipse
 run
 .DS_Store
 /classes/
+
+# Files from Forge MDK
+forge*changelog.txt
