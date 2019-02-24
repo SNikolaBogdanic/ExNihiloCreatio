@@ -1,16 +1,16 @@
-package exnihilocreatio.client
+package exnihilocreatio.utils.texturing
 
-data class Color(val r : Float, val b : Float, val g : Float, val a : Float) {
+data class Color(val r: Float, val b: Float, val g: Float, val a: Float) {
 
-    constructor(color: Int, ignoreAlpha: Boolean = true) : this(
+    constructor(color: Int, ignoreAlpha: Boolean = true): this(
         (color shr 16 and 255) / 255.0f,
         (color shr 8 and 255) / 255.0f,
         (color and 255) / 255.0f,
         if (ignoreAlpha) 1.0f else (color shr 24 and 255) / 255.0f)
 
-    constructor(hex : String) : this(Integer.parseInt(hex, 16))
+    constructor(hex: String): this(Integer.parseInt(hex, 16))
 
-    fun toInt() : Int {
+    fun toInt(): Int {
         var color = toIntNoAlpha()
         color = color or ((a * 255) as Int shl 24)
         return color
@@ -24,7 +24,7 @@ data class Color(val r : Float, val b : Float, val g : Float, val a : Float) {
         return color
     }
 
-    override fun toString() : String {
+    override fun toString(): String {
         return "Color{r=%f, g=%f, b=%f, a=%f}".format(r, g, b, a)
     }
 
@@ -34,7 +34,7 @@ data class Color(val r : Float, val b : Float, val g : Float, val a : Float) {
 
     companion object {
         @JvmStatic
-        fun average(left : Color, right : Color, percentage : Float) : Color {
+        fun average(left: Color, right: Color, percentage: Float): Color {
             val opposite = 1 - percentage
             val avgR = Math.sqrt(left.r*left.r*opposite + right.r*right.r*percentage as Double) as Float
             val avgB = Math.sqrt(left.b*left.b*opposite + right.b*right.b*percentage as Double) as Float

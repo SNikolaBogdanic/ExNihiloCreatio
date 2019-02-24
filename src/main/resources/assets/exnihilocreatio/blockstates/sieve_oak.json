@@ -1,0 +1,16 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "exnihilocreatio:sieve",
+    "transform": "forge:default-block",
+    "textures": {
+      "top": "block/oak_planks",
+      "bottom": "block/oak_planks",
+      "side": "block/oak_planks"
+    }
+  },
+  "variants": {
+    "": [{
+    }]
+  }
+}

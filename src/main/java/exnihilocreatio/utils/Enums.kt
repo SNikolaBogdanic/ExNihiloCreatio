@@ -1,10 +1,8 @@
 package exnihilocreatio.utils
 
-import net.minecraft.init.Blocks
 import net.minecraft.util.ResourceLocation
-import net.minecraftforge.common.IPlantable
 
-enum class VanillaWoodTypes(val text : String) {
+enum class VanillaWoodTypes(val text: String) {
     OAK("oak"),
     BIRCH("birch"),
     SPRUCE("spruce"),
@@ -12,32 +10,30 @@ enum class VanillaWoodTypes(val text : String) {
     ACACIA("acacia"),
     DARK_OAK("dark_oak");
 
-    fun getPlanksResource() : ResourceLocation {
+    fun getPlanksResource(): ResourceLocation {
         return ResourceLocation("minecraft:block/planks_%s".format(getTextureName()))
     }
 
-    fun getBarkResource() : ResourceLocation {
+    fun getBarkResource(): ResourceLocation {
         return ResourceLocation("minecraft:block/bark_%s".format(getTextureName()))
     }
 
-    fun getTextureName() : String {
+    fun getTextureName(): String {
         if(this != DARK_OAK)
             return text
         else
             return "big_oak" // Seriously "big" oak?
     }
 
-    fun getName() : String {
+    fun getName(): String {
         return this.text
     }
 
-    fun suffix(s : String) : String {
+    fun suffix(s: String): String {
         return this.text + s
     }
 
-    fun prefix(s : String) : String {
+    fun prefix(s: String): String {
         return s + this.text
     }
-
-
 }

@@ -1,5 +1,5 @@
 modLoader="kotlinfml"
-loaderVersion="[1,)"
+loaderVersion="[1.0.2,)"
 issueTrackerURL="https://github.com/BloodyMods/ExNihiloCreatio/issues"
 displayURL="https://github.com/BloodyMods/ExNihiloCreatio/"
 logoFile="examplemod.png"
@@ -7,18 +7,18 @@ authors="BloodWorkXGaming, SirLyle"
 
 [[mods]]
     modId="exnihilocreatio"
-    version="${file.jarVersion}
+    version="${file.jarVersion}"
     displayName="Ex Nihilo Creatio"
     description="Creation from nothingness"
 
-[[dependencies.roomery]]
+[[dependencies.exnihilocreatio]]
     modId="forge"
     mandatory=true
     versionRange="[25,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.roomery]]
+[[dependencies.exnihilocreatio]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.13.2,)"

@@ -4,7 +4,7 @@ import exnihilocreatio.MODID
 import net.minecraft.tileentity.TileEntityType
 import java.util.function.Supplier
 
-object TileTypeSieve : TileEntityType<TileSieve>(Supplier { TileSieve() }, null) {
+object TileTypeSieve: TileEntityType<TileSieve>(Supplier { TileSieve() }, null) {
     init {
         this.setRegistryName(MODID, "sieve")
     }
