@@ -6,7 +6,7 @@ import net.minecraft.util.math.shapes.VoxelShapes
 
 object VoxelShapeHelper {
     fun union(vararg shapes: VoxelShape): VoxelShape {
-        var output = VoxelShapes.fullCube()
+        var output = VoxelShapes.empty()
         for(shape in shapes){
             output = VoxelShapes.combine(output, shape, IBooleanFunction.OR)
         }

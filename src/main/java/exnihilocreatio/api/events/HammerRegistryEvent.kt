@@ -1,0 +1,6 @@
+package exnihilocreatio.api.events
+
+import exnihilocreatio.api.ExNihiloCreatioAPI
+import exnihilocreatio.api.registries.IToolRegistry
+
+class HammerRegistryEvent: BaseRegistryEvent<IToolRegistry>(ExNihiloCreatioAPI.HAMMER_REGISTRY)

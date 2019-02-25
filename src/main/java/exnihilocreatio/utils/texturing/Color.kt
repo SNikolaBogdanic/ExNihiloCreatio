@@ -12,15 +12,15 @@ data class Color(val r: Float, val b: Float, val g: Float, val a: Float) {
 
     fun toInt(): Int {
         var color = toIntNoAlpha()
-        color = color or ((a * 255) as Int shl 24)
+        color = color or ((a * 255).toInt() shl 24)
         return color
     }
 
     fun toIntNoAlpha(): Int {
         var color = 0
-        color = color or ((r * 255) as Int shl 16)
-        color = color or ((g * 255) as Int shl 8)
-        color = color or (b * 255) as Int
+        color = color or ((r * 255).toInt() shl 16)
+        color = color or ((g * 255).toInt() shl 8)
+        color = color or (b * 255).toInt()
         return color
     }
 
@@ -36,10 +36,10 @@ data class Color(val r: Float, val b: Float, val g: Float, val a: Float) {
         @JvmStatic
         fun average(left: Color, right: Color, percentage: Float): Color {
             val opposite = 1 - percentage
-            val avgR = Math.sqrt(left.r*left.r*opposite + right.r*right.r*percentage as Double) as Float
-            val avgB = Math.sqrt(left.b*left.b*opposite + right.b*right.b*percentage as Double) as Float
-            val avgG = Math.sqrt(left.g*left.g*opposite + right.g*right.g*percentage as Double) as Float
-            val avgA = Math.sqrt(left.a*left.a*opposite + right.a*right.a*percentage as Double) as Float
+            val avgR = Math.sqrt(left.r*left.r*opposite + right.r*right.r*percentage.toDouble()).toFloat()
+            val avgB = Math.sqrt(left.b*left.b*opposite + right.b*right.b*percentage.toDouble()).toFloat()
+            val avgG = Math.sqrt(left.g*left.g*opposite + right.g*right.g*percentage.toDouble()).toFloat()
+            val avgA = Math.sqrt(left.a*left.a*opposite + right.a*right.a*percentage.toDouble()).toFloat()
             return Color(avgR, avgB, avgG, avgA)
         }
         @JvmStatic

@@ -1,31 +1,25 @@
-package exnihilocreatio.compatibility
+package exnihilocreatio.modules.compatibility
 
 import exnihilocreatio.ENCBlocks
 import exnihilocreatio.ENCItems
-import exnihilocreatio.api.IHasRecipes
-import exnihilocreatio.api.registries.*
+import exnihilocreatio.api.ExNihiloCreatioAPI
+import exnihilocreatio.api.events.CrookRegistryEvent
+import exnihilocreatio.api.events.HammerRegistryEvent
+import exnihilocreatio.utils.VanillaWoodTypes
 import net.minecraft.init.Blocks
 import net.minecraft.init.Items
 import net.minecraft.item.EnumDyeColor
 import net.minecraft.item.ItemStack
-import net.minecraft.item.crafting.Ingredient
 import net.minecraft.util.ResourceLocation
+import net.minecraftforge.eventbus.api.SubscribeEvent
+import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.registries.ForgeRegistries
 
-object ExNihiloCreatioDefaults: IHasRecipes {
-    override fun registerMeshes(registry: IMeshRegistry) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun registerSieve(registry: ISieveRegistry) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun registerCrook(registry: IToolRegistry) {
-        registry.register(Ingredient.fromItems(Blocks.OAK_LEAVES), ItemStack(ENCItems.SILKWORM_RAW), 0.3f)
-    }
-
-    override fun registerHammer(registry: IToolRegistry) {
+@Mod.EventBusSubscriber
+object ENCDefaults {
+    @SubscribeEvent
+    fun registerHammer(event: HammerRegistryEvent){
+        val registry = event.registry
         // Normal Stone
         registry.register(Blocks.STONE, Blocks.COBBLESTONE)
         registry.register(Blocks.COBBLESTONE, Blocks.GRAVEL)
@@ -74,27 +68,22 @@ object ExNihiloCreatioDefaults: IHasRecipes {
             val wool = ForgeRegistries.BLOCKS.getValue(ResourceLocation("minecraft", color.name.toLowerCase() + "_wool")) ?: continue
             registry.register(wool, ItemStack(Items.STRING, 4))
         }
+
+        //TODO consider adding sawdust from logs/planks
     }
 
-    override fun registerCrucibleHeat(registry: ICrucibleHeatRegistry) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    @SubscribeEvent
+    fun registerCrook(event: CrookRegistryEvent){
+        val registry = event.registry
+
+        // TODO figure out tags
+        for(wood in VanillaWoodTypes.values()) {
+            registry.register(wood.getLeaves(), ENCItems.SILKWORM_RAW, 0.2f)
+            registry.register(wood.getLeaves(), ENCItems.SILKWORM_RAW, 0.1f)
+            registry.register(wood.getLeaves(), ENCItems.SILKWORM_RAW, 0.05f)
+            registry.register(wood.getLeaves(), wood.getSapling(), 0.5f)
+        }
+        registry.register(Blocks.OAK_LEAVES, Items.APPLE, 0.1f)
+        registry.register(Blocks.DARK_OAK_LEAVES, Items.APPLE, 0.3f)
     }
-
-    override fun registerWoodCrucible(registry: ICrucibleRegistry) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun registerStoneCrucible(registry: ICrucibleRegistry) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun registerBarrelBlackList(registry: IBarrelBlackList) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun registerBarrelAlchemy(registry: IBarrelAlchemyRegistry) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-
 }

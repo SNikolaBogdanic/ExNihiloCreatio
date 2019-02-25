@@ -1,5 +1,6 @@
 package exnihilocreatio
 
+import exnihilocreatio.modules.compatibility.ENCDefaults
 import exnihilocreatio.modules.tools.HandlerHarvest
 import exnihilocreatio.proxy.ClientProxy
 import exnihilocreatio.proxy.CommonProxy
@@ -27,13 +28,18 @@ object ExNihiloCreatio {
     init {
         FMLKotlinModLoadingContext.get().modEventBus.register(proxy)
 
-        // ENC Model Loader
-        // ModelLoaderRegistry.registerLoader(ENCModelLoader)
-        preInit()
+        registerEventListeners()
+        registerENCRegistryListeners()
     }
 
-    private fun preInit(){
+    private fun registerEventListeners(){
         MinecraftForge.EVENT_BUS.register(HandlerHarvest)
+        // TODO: Anvil listener for mesh enchanting
+    }
+
+    private fun registerENCRegistryListeners() {
+
+        MinecraftForge.EVENT_BUS.register(ENCDefaults)
     }
 
     fun createResource(path: String): ResourceLocation = ResourceLocation(MODID, path)

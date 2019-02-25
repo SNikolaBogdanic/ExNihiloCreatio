@@ -1,6 +1,10 @@
 package exnihilocreatio.utils
 
+import net.minecraft.block.Block
+import net.minecraft.init.Blocks
 import net.minecraft.util.ResourceLocation
+import net.minecraftforge.common.MinecraftForge
+import net.minecraftforge.registries.ForgeRegistries
 
 enum class VanillaWoodTypes(val text: String) {
     OAK("oak"),
@@ -11,11 +15,11 @@ enum class VanillaWoodTypes(val text: String) {
     DARK_OAK("dark_oak");
 
     fun getPlanksResource(): ResourceLocation {
-        return ResourceLocation("minecraft:block/planks_%s".format(getTextureName()))
+        return ResourceLocation("minecraft:block/%s_planks".format(getTextureName()))
     }
 
     fun getBarkResource(): ResourceLocation {
-        return ResourceLocation("minecraft:block/bark_%s".format(getTextureName()))
+        return ResourceLocation("minecraft:block/%s_bark".format(getTextureName()))
     }
 
     fun getTextureName(): String {
@@ -26,14 +30,30 @@ enum class VanillaWoodTypes(val text: String) {
     }
 
     fun getName(): String {
-        return this.text
+        return text
     }
 
     fun suffix(s: String): String {
-        return this.text + s
+        return text + s
     }
 
     fun prefix(s: String): String {
-        return s + this.text
+        return s + text
+    }
+
+    fun getLog(): Block {
+        return ForgeRegistries.BLOCKS.getValue(ResourceLocation("minecraft", text + "_log")) ?: Blocks.OAK_LOG
+    }
+
+    fun getLeaves(): Block {
+        return ForgeRegistries.BLOCKS.getValue(ResourceLocation("minecraft", text + "_leaves")) ?: Blocks.OAK_LEAVES
+    }
+
+    fun getPlanks(): Block {
+        return ForgeRegistries.BLOCKS.getValue(ResourceLocation("minecraft", text + "_planks")) ?: Blocks.OAK_PLANKS
+    }
+
+    fun getSapling(): Block {
+        return ForgeRegistries.BLOCKS.getValue(ResourceLocation("minecraft", text + "_sapling")) ?: Blocks.OAK_SAPLING
     }
 }

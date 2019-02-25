@@ -1,0 +1,6 @@
+package exnihilocreatio.api.events
+
+import exnihilocreatio.api.ExNihiloCreatioAPI
+import exnihilocreatio.api.registries.IBarrelBlackList
+
+class BarrelBlackListRegistryEvent: BaseRegistryEvent<IBarrelBlackList>(ExNihiloCreatioAPI.WOOD_BARREL_BLACKLIST)

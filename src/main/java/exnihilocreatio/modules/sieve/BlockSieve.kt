@@ -16,16 +16,17 @@ import net.minecraft.util.math.shapes.VoxelShape
 import net.minecraft.world.IBlockReader
 import net.minecraft.world.World
 
-class BlockSieve(name: String, matIn: Material, val texture: ResourceLocation): BlockNonCubeBase(name, matIn) {
+class BlockSieve(name: String, mat: Material, val texture: ResourceLocation): BlockNonCubeBase(name, mat) {
     val WATERLOGGED = BlockStateProperties.WATERLOGGED
 
     override fun createTileEntity(state: IBlockState?, world: IBlockReader?): TileEntity? {
         return TileSieve()
     }
 
+    @Suppress("OverridingDeprecatedMember")
     override fun onBlockActivated(state: IBlockState, world: World, pos: BlockPos, player: EntityPlayer, hand: EnumHand, face: EnumFacing, hitX: Float, hitY: Float, hitZ: Float): Boolean {
         if(world.isRemote)
-            return true;
+            return true
         // Keep all the sieving logic in the TE.
         val te = world.getTileEntity(pos)
         if(te is TileSieve)
@@ -33,6 +34,7 @@ class BlockSieve(name: String, matIn: Material, val texture: ResourceLocation): 
         return true
     }
 
+    @Suppress("OverridingDeprecatedMember")
     override fun getShape(state: IBlockState?, worldIn: IBlockReader?, pos: BlockPos?): VoxelShape {
         return SHAPE
     }

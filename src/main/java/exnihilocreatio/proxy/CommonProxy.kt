@@ -4,10 +4,12 @@ import exnihilocreatio.ENCBlocks
 import exnihilocreatio.ENCItems
 import exnihilocreatio.ENCTiles
 import exnihilocreatio.api.ExNihiloCreatioAPI
-import exnihilocreatio.compatibility.ExNihiloCreatioDefaults
+import exnihilocreatio.api.events.CrookRegistryEvent
+import exnihilocreatio.api.events.HammerRegistryEvent
 import net.minecraft.block.Block
 import net.minecraft.item.Item
 import net.minecraft.tileentity.TileEntityType
+import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.eventbus.api.SubscribeEvent
 
@@ -33,6 +35,7 @@ abstract class CommonProxy {
         }
 
         // TODO move this a proper place
-        ExNihiloCreatioDefaults.registerHammer(ExNihiloCreatioAPI.HAMMER_REGISTRY)
+        MinecraftForge.EVENT_BUS.post(HammerRegistryEvent())
+        MinecraftForge.EVENT_BUS.post(CrookRegistryEvent())
     }
 }

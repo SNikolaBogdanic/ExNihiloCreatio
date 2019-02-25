@@ -1,11 +1,13 @@
 package exnihilocreatio
 
+import exnihilocreatio.modules.barrel.BlockBarrel
 import exnihilocreatio.modules.base.blocks.BlockFallingBase
 import exnihilocreatio.modules.sieve.BlockSieve
 import exnihilocreatio.utils.VanillaWoodTypes
 import net.minecraft.block.Block
 import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
+import net.minecraft.util.ResourceLocation
 
 object ENCBlocks {
     val blocks = ArrayList<Block>()
@@ -26,16 +28,13 @@ object ENCBlocks {
     val CRUCIBLES = ArrayList<Block>()
 
     init {
-        val wood = VanillaWoodTypes.OAK
-        SIEVES.add(BlockSieve(wood.prefix("sieve_"), Material.WOOD, wood.getPlanksResource()))
         // Loop over the vanilla wood types to create Sieves/Barrels/Crucibles
-        // for(wood in VanillaWoodTypes.values()){
-        //     SIEVES.add(BlockSieve(wood.prefix("sieve_"), Material.WOOD, wood.getPlanksResource()))
-        //     BARRELS.add(BlockBarrel(wood.prefix("barrel_"), Material.WOOD, wood.getPlanksResource()))
-        //     CRUCIBLES.add(BlockCrucible(wood.prefix("crucible_"), Material.WOOD, wood.getBarkResource()))
-        //     break;
-        // }
-        //BARRELS.add(BlockBarrel("barrel_stone", Material.ROCK, ResourceLocation("minecraft:block/stone")))
+        for(wood in VanillaWoodTypes.values()){
+            SIEVES.add(BlockSieve(wood.prefix("sieve_"), Material.WOOD, wood.getPlanksResource()))
+            BARRELS.add(BlockBarrel(wood.prefix("barrel_"), Material.WOOD, wood.getPlanksResource()))
+            //CRUCIBLES.add(BlockCrucible(wood.prefix("crucible_"), Material.WOOD, wood.getBarkResource()))
+        }
+        BARRELS.add(BlockBarrel("barrel_stone", Material.ROCK, ResourceLocation("minecraft:block/stone")))
         //CRUCIBLES.add(BlockBarrel("crucible_stone", Material.ROCK, ExNihiloCreatio.createResource("block/crucible_stone")))
     }
 }
