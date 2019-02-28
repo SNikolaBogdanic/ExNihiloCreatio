@@ -19,7 +19,6 @@ object ExNihiloCreatioAPI {
 //    val WOOD_CRUCIBLE_REGISTRY: ICrucibleRegistry = RegistryManager.WOOD_CRUCIBLE_REGISTRY
 //    val CRUCIBLE_HEAT_REGISTRY: ICrucibleHeatRegistry = RegistryManager.CRUCIBLE_HEAT_REGISTRY
 
-    val MESH_REGISTRY = RegistryManager.MESH_REGISTRY
     val SIEVE_REGISTRY = RegistryManager.SIEVE_REGISTRY
 
     // These events are fired when recipes should be loaded. Add event listeners that listen for these.

@@ -1,5 +1,6 @@
 package exnihilocreatio
 
+import exnihilocreatio.client.RenderEvent
 import exnihilocreatio.modules.compatibility.ENCDefaults
 import exnihilocreatio.modules.tools.HandlerHarvest
 import exnihilocreatio.proxy.ClientProxy

@@ -2,7 +2,6 @@ package exnihilocreatio.modules.compatibility
 
 import exnihilocreatio.ENCBlocks
 import exnihilocreatio.ENCItems
-import exnihilocreatio.api.ExNihiloCreatioAPI
 import exnihilocreatio.api.events.CrookRegistryEvent
 import exnihilocreatio.api.events.HammerRegistryEvent
 import exnihilocreatio.utils.VanillaWoodTypes
@@ -81,9 +80,12 @@ object ENCDefaults {
             registry.register(wood.getLeaves(), ENCItems.SILKWORM_RAW, 0.2f)
             registry.register(wood.getLeaves(), ENCItems.SILKWORM_RAW, 0.1f)
             registry.register(wood.getLeaves(), ENCItems.SILKWORM_RAW, 0.05f)
-            registry.register(wood.getLeaves(), wood.getSapling(), 0.5f)
+            registry.register(wood.getLeaves(), wood.getSapling(), 0.2f)
+            registry.register(wood.getLeaves(), wood.getSapling(), 0.2f)
+            registry.register(wood.getLeaves(), wood.getSapling(), 0.2f)
         }
         registry.register(Blocks.OAK_LEAVES, Items.APPLE, 0.1f)
         registry.register(Blocks.DARK_OAK_LEAVES, Items.APPLE, 0.3f)
+
     }
 }

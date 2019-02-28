@@ -47,3 +47,21 @@ EOL
 EOL
   done
 done
+
+meshes=("string" "flint" "iron" "diamond")
+textures=("minecraft:block/white_wool" "minecraft:block/gray_wool" "minecraft:block/light_gray_wool" "minecraft:block/cyan_wool")
+
+for ((i=0;i<${#meshes[@]};++i)); do
+    mesh=${meshes[i]}
+    texture=${textures[i]}
+
+    asset="mesh_${mesh}"
+    touch ${models_dir}item/${asset}.json
+    cat > ${models_dir}item/${asset}.json <<EOL
+{
+  "parent": "${modid}:item/mesh",
+  "textures": {"all": "${texture}"}
+}
+
+EOL
+done

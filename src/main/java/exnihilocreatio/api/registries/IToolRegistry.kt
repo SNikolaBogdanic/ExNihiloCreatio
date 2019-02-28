@@ -17,6 +17,7 @@ interface IToolRegistry {
      * This is the preferred register function, all other register functions eventually are reduced to this.
      */
     fun register(ingredient: Ingredient, vararg loot: Lootable)
+    fun register(ingredient: Ingredient, result: IItemProvider, chance: Float = 1.0f)
     fun register(ingredient: Ingredient, stack: ItemStack, chance: Float = 1.0f)
 
     fun register(item: IItemProvider, vararg loot: Lootable)

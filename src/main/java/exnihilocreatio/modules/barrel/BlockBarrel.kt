@@ -12,11 +12,10 @@ import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.shapes.VoxelShape
 import net.minecraft.world.IBlockReader
 
-class BlockBarrel(name: String, mat: Material, val texture: ResourceLocation): BlockNonCubeBase(name, mat) {
+class BlockBarrel(name: String, mat: Material): BlockNonCubeBase(name, mat) {
     override fun createTileEntity(state: IBlockState?, world: IBlockReader?): TileEntity? {
         return TileBarrel()
     }
-
 
     @Suppress("OverridingDeprecatedMember")
     override fun getShape(state: IBlockState?, worldIn: IBlockReader?, pos: BlockPos?): VoxelShape {

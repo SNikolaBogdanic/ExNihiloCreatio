@@ -31,6 +31,9 @@ class ToolRegistry(val toolType: ToolType): BaseRegistryMap<Ingredient, MutableL
     override fun register(ingredient: Ingredient, stack: ItemStack, chance: Float) {
         register(ingredient, Lootable(stack, chance))
     }
+    override fun register(ingredient: Ingredient, result: IItemProvider, chance: Float) {
+        register(ingredient, Lootable(result, chance))
+    }
     override fun register(item: IItemProvider, vararg loot: Lootable) {
         register(Ingredient.fromItems(item), *loot)
     }

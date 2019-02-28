@@ -5,6 +5,7 @@ import exnihilocreatio.modules.farming.BlockInfestedLeaves
 import exnihilocreatio.modules.farming.ItemPlantable
 import exnihilocreatio.modules.farming.ItemTransformer
 import exnihilocreatio.modules.sieve.ItemMesh
+import exnihilocreatio.modules.sieve.properties.EnumMeshType
 import exnihilocreatio.modules.tools.ToolCrook
 import exnihilocreatio.modules.tools.ToolHammer
 import exnihilocreatio.utils.texturing.Color
@@ -44,12 +45,6 @@ object ENCItems {
     val SEED_GRASS = ItemTransformer("seed_grass", Blocks.DIRT, Blocks.GRASS_BLOCK)
     val SEED_MYCELIUM = ItemTransformer("seed_mycelium", Blocks.DIRT, Blocks.MYCELIUM)
 
-    // Meshes
-    // TODO use MeshRegistry
-    val STRING_MESH = ItemMesh("mesh_string", Color.WHITE)
-    val FLINT_MESH = ItemMesh("mesh_flint", Color.DARK_GRAY)
-    val IRON_MESH = ItemMesh("mesh_iron", Color.GRAY)
-    val DIAMOND_MESH = ItemMesh("mesh_diamond", Color.AQUA)
 
     // Crooks
     val CROOK_WOOD = ToolCrook("crook_wood", ItemTier.WOOD)
@@ -66,4 +61,15 @@ object ENCItems {
     // Silkworm
     val SILKWORM_RAW = ItemTransformer("silkworm_raw", Blocks.OAK_LEAVES, BlockInfestedLeaves)
     val SILKWORM_COOKED = FoodBase("silkworm_cooked", 0, 2.0f, false)
+
+    // Meshes
+    val MESHES: MutableList<ItemMesh> = ArrayList<ItemMesh>()
+
+    init {
+        // TODO use MeshRegistry
+        MESHES.add(ItemMesh("mesh_string", EnumMeshType.STRING))
+        MESHES.add(ItemMesh("mesh_flint", EnumMeshType.FLINT))
+        MESHES.add(ItemMesh("mesh_iron", EnumMeshType.IRON))
+        MESHES.add(ItemMesh("mesh_diamond", EnumMeshType.DIAMOND))
+    }
 }

@@ -1,3 +1,17 @@
 {
-  "variants": {"": [{"model": "exnihilocreatio:block/sieve_birch"}]}
+  "multipart": [
+    {"apply": {"model": "exnihilocreatio:block/sieve_birch"}},
+    { "when": {"mesh": "string"},
+      "apply": {"model":"exnihilocreatio:item/mesh_string"}
+    },
+    { "when": {"mesh": "flint"},
+      "apply": {"model":"exnihilocreatio:item/mesh_flint"}
+    },
+    { "when": {"mesh": "iron"},
+      "apply": {"model":"exnihilocreatio:item/mesh_iron"}
+    },
+    { "when": {"mesh": "diamond"},
+      "apply": {"model":"exnihilocreatio:item/mesh_diamond"}
+    }
+  ]
 }

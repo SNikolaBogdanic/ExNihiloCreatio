@@ -1,0 +1,5 @@
+{
+  "parent": "exnihilocreatio:item/mesh",
+  "textures": {"all": "minecraft:block/white_wool"}
+}
+
