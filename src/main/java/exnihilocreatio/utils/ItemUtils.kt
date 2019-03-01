@@ -9,9 +9,10 @@ import net.minecraft.util.math.Vec3d
 import net.minecraft.world.World
 
 object ItemUtils {
-    fun StackOfOne(stack: ItemStack?): ItemStack {
-        val copy = stack?.copy() ?: ItemStack.EMPTY
-        if(!copy.isEmpty) copy.count = 1
+    fun StackOfOne(stack: ItemStack): ItemStack {
+        val copy = stack.copy()
+        if(!copy.isEmpty)
+            copy.count = 1
         return copy
     }
 

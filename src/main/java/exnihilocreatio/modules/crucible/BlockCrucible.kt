@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.shapes.VoxelShape
 import net.minecraft.world.IBlockReader
 
-class BlockCrucible(name : String, mat : Material) : BlockNonCubeBase(name, mat) {
+class BlockCrucible(name : String, properties: Block.Properties = woodProperties) : BlockNonCubeBase(name, properties) {
     override fun createTileEntity(state: IBlockState?, world: IBlockReader?): TileEntity? {
         return TileCrucible()
     }
@@ -32,5 +32,8 @@ class BlockCrucible(name : String, mat : Material) : BlockNonCubeBase(name, mat)
                 Block.makeCuboidShape(0.0, 3.0, 0.0, 16.0, 16.0, 16.0)
         )
         val SHAPE = VoxelShapeHelper.union(*SUB_SHAPES)
+
+        val woodProperties = Properties.create(Material.WOOD).hardnessAndResistance(2.0f)
+        val stoneProperties = Properties.create(Material.WOOD).hardnessAndResistance(2.0f, 6.0f)
     }
 }

@@ -1,7 +1,10 @@
 package exnihilocreatio.modules.sieve
 
 import exnihilocreatio.ENCConfig
+import exnihilocreatio.ExNihiloCreatio
 import exnihilocreatio.modules.base.tiles.BaseTileEntity
+import exnihilocreatio.modules.sieve.properties.EnumMeshType
+import exnihilocreatio.networking.PacketHandler
 import exnihilocreatio.utils.ItemUtils
 import net.minecraft.block.state.IBlockState
 import net.minecraft.enchantment.EnchantmentHelper
@@ -13,6 +16,7 @@ import net.minecraft.util.EnumFacing
 import net.minecraft.util.EnumHand
 import net.minecraft.util.NonNullList
 import net.minecraft.util.math.Vec3d
+import net.minecraft.util.text.TextComponentString
 import net.minecraftforge.items.ItemStackHandler
 
 class TileSieve: BaseTileEntity(TileTypeSieve) {
@@ -23,39 +27,27 @@ class TileSieve: BaseTileEntity(TileTypeSieve) {
     /**
      * Handles player interaction logic
      */
-    fun onBlockActivated(state: IBlockState, player: EntityPlayer, hand: EnumHand, facing: EnumFacing, hitX: Float, hitY: Float, hitZ: Float): Boolean {
-        if(world.isRemote)
-            return true
-
+    fun onBlockActivated(state: IBlockState, player: EntityPlayer, hand: EnumHand): Boolean {
         val held = player.getHeldItem(hand)
-        if(player.isSneaking) {
-            if(!mesh.isEmpty && (held.isEmpty || held.item is ItemMesh)){
-                // Removing a mesh
-                val location = Vec3d(pos).add(0.0, 0.5, 0.0)
-                val direction = Vec3d(player.position).subtract(location).normalize()
-                ItemUtils.dropInWorld(world, location, direction, mesh)
-                mesh = ItemStack.EMPTY
-                return true
-
-            }
-            return false
+        if(inventory.isEmpty && (held.isEmpty || (held.item is ItemMesh))) {
+            // Removing/Adding a mesh
+            if(!mesh.isEmpty)
+                player.addItemStackToInventory(mesh.copy())
+            mesh = ItemUtils.StackOfOne(held)
+            if(!player.isCreative && !mesh.isEmpty)
+                held.shrink(1)
+            if(mesh.item is ItemMesh)
+                world.setBlockState(pos, state.with(BlockSieve.MESH, (mesh.item as ItemMesh).meshType))
+            return true
         }
 
         val adjacent = getNearbySieves()
-
         // Do progress
         if(!inventory.isEmpty) {
             doProgress(player)
             for(sieve in adjacent)
                 sieve.doProgress(player)
             return true
-        }
-
-        // Adding an item/mesh use handler logic for future expansion to items with inventories
-        val handler = ItemStackHandler(NonNullList.from(held))
-
-        for(stack in 0..handler.slots) {
-
         }
 
         return true
@@ -65,6 +57,9 @@ class TileSieve: BaseTileEntity(TileTypeSieve) {
      * Increments sieving progress.
      */
     private fun doProgress(player: EntityPlayer) {
+        if(inventory.isEmpty)
+            return
+
         // TODO add fakePlayer check
 
         var delta = ENCConfig.Sieve.progress + EnchantmentHelper.getEnchantmentLevel(Enchantments.EFFICIENCY, mesh) / 5.0
@@ -80,6 +75,12 @@ class TileSieve: BaseTileEntity(TileTypeSieve) {
             progress = 0.0
         }
         // TODO Spawn some particles particles under the sieve
+    }
+
+    fun getMeshType(): EnumMeshType {
+        if(mesh.isEmpty || mesh.item !is ItemMesh)
+            return EnumMeshType.EMPTY
+        return (mesh.item as ItemMesh).meshType
     }
 
     /**

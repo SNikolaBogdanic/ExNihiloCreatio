@@ -17,7 +17,7 @@ class FluidIngredient(val fluid: FluidStack):
     override fun isSimple() = false
 
     override fun test(stack: ItemStack?): Boolean {
-        return fluid.isFluidEqual(ItemUtils.StackOfOne(stack))
+        return fluid.isFluidEqual(ItemUtils.StackOfOne(stack ?: return false))
     }
 
     fun test(stack: FluidStack): Boolean {

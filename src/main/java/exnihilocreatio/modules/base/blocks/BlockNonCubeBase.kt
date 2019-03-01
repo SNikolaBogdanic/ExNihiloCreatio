@@ -10,7 +10,7 @@ import net.minecraft.world.IBlockReader
 import net.minecraftforge.api.distmarker.Dist
 import net.minecraftforge.api.distmarker.OnlyIn
 
-abstract class BlockNonCubeBase(name: String, mat: Material): BlockBase(name, mat) {
+abstract class BlockNonCubeBase(name: String, properties: Properties): BlockBase(name, properties) {
     override fun getCollisionShape(state: IBlockState, worldIn: IBlockReader, pos: BlockPos): VoxelShape {
         return state.getShape(worldIn, pos)
     }
