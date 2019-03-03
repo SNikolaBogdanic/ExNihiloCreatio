@@ -1,0 +1,6 @@
+package exnihilocreatio.api.events
+
+import exnihilocreatio.api.ExNihiloCreatioAPI
+import exnihilocreatio.api.registries.ISieveRegistry
+
+class SieveRegistryEvent: BaseRegistryEvent<ISieveRegistry>(ExNihiloCreatioAPI.SIEVE_REGISTRY)

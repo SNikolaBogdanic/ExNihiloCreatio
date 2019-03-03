@@ -3,7 +3,6 @@ package exnihilocreatio.modules.tools
 import exnihilocreatio.api.ExNihiloCreatioAPI
 import exnihilocreatio.api.registries.IToolRegistry
 import exnihilocreatio.utils.ItemUtils
-import net.minecraft.entity.player.EntityPlayer
 import net.minecraftforge.event.world.BlockEvent
 import net.minecraftforge.eventbus.api.EventPriority
 import net.minecraftforge.eventbus.api.SubscribeEvent

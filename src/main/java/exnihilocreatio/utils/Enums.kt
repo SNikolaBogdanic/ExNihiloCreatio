@@ -3,7 +3,6 @@ package exnihilocreatio.utils
 import net.minecraft.block.Block
 import net.minecraft.init.Blocks
 import net.minecraft.util.ResourceLocation
-import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.registries.ForgeRegistries
 
 enum class VanillaWoodTypes(val text: String) {

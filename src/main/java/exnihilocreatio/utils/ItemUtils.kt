@@ -3,6 +3,8 @@ package exnihilocreatio.utils
 import exnihilocreatio.ExNihiloCreatio
 import exnihilocreatio.api.ToolTypes
 import net.minecraft.entity.item.EntityItem
+import net.minecraft.entity.item.EntityPainting
+import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.ItemStack
 import net.minecraft.util.NonNullList
 import net.minecraft.util.math.Vec3d
@@ -59,6 +61,18 @@ object ItemUtils {
         for(stack in stacks){
             val e = EntityItem(world, location.x, location.y, location.z, stack)
             e.setVelocity(direction.x, direction.y, direction.z)
+            world.spawnEntity(e)
+        }
+    }
+
+    fun dropToPlayer(world: World, origin: Vec3d, player: EntityPlayer, speed: Double, vararg stacks: ItemStack) {
+        for(stack in stacks){
+            val e = EntityItem(world, origin.x, origin.y, origin.z, stack)
+            val motion = Vec3d(player.posX - origin.x, player.posY - origin.y, player.posZ - origin.z)
+            motion.normalize()
+            e.motionX = motion.x * speed
+            e.motionY = motion.y * speed
+            e.motionZ = motion.z * speed
             world.spawnEntity(e)
         }
     }

@@ -1,6 +1,7 @@
 package exnihilocreatio
 
 import exnihilocreatio.modules.base.items.FoodBase
+import exnihilocreatio.modules.base.items.ItemBase
 import exnihilocreatio.modules.farming.BlockInfestedLeaves
 import exnihilocreatio.modules.farming.ItemPlantable
 import exnihilocreatio.modules.farming.ItemTransformer
@@ -8,9 +9,7 @@ import exnihilocreatio.modules.sieve.ItemMesh
 import exnihilocreatio.modules.sieve.properties.EnumMeshType
 import exnihilocreatio.modules.tools.ToolCrook
 import exnihilocreatio.modules.tools.ToolHammer
-import exnihilocreatio.utils.texturing.Color
 import net.minecraft.init.Blocks
-import net.minecraft.init.Items
 import net.minecraft.item.Item
 import net.minecraft.item.ItemTier
 import net.minecraftforge.common.IPlantable
@@ -21,9 +20,6 @@ object ENCItems {
     // Crop Seeds
     val SEED_POTATO = ItemPlantable("seed_potato", Blocks.CARROTS as IPlantable)
     val SEED_CARROT = ItemPlantable("seed_carrot", Blocks.POTATOES as IPlantable)
-    // Vanilla, for ease of reference.
-    val SEED_WHEAT = Items.WHEAT_SEEDS
-    val SEED_BEETROOT = Items.BEETROOT_SEEDS
 
     // Special Plants
     val SEED_REEDS = ItemPlantable("seed_reeds", Blocks.SUGAR_CANE as IPlantable)
@@ -39,7 +35,7 @@ object ENCItems {
     val SEED_SPRUCE = ItemPlantable("seed_spruce", Blocks.SPRUCE_SAPLING as IPlantable)
     val SEED_JUNGLE = ItemPlantable("seed_jungle", Blocks.JUNGLE_SAPLING as IPlantable)
     val SEED_ACACIA = ItemPlantable("seed_acacia", Blocks.ACACIA_SAPLING as IPlantable)
-    val SEED_DARK_AK = ItemPlantable("seed_dark_oak", Blocks.DARK_OAK_SAPLING as IPlantable)
+    val SEED_DARK_OAK = ItemPlantable("seed_dark_oak", Blocks.DARK_OAK_SAPLING as IPlantable)
 
     // Transformer Seeds
     val SEED_GRASS = ItemTransformer("seed_grass", Blocks.DIRT, Blocks.GRASS_BLOCK)
@@ -64,6 +60,12 @@ object ENCItems {
 
     // Meshes
     val MESHES: MutableList<ItemMesh> = ArrayList<ItemMesh>()
+
+    // Pebbles
+    val PEBBLE_STONE = ItemBase("pebble_stone")
+    val PEBBLE_GRANITE = ItemBase("pebble_granite")
+    val PEBBLE_DIORITE = ItemBase("pebble_diorite")
+    val PEBBLE_ANDESITE = ItemBase("pebble_andesite")
 
     init {
         // TODO use MeshRegistry

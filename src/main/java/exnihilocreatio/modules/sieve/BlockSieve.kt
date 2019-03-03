@@ -6,18 +6,17 @@ import exnihilocreatio.utils.VoxelShapeHelper
 import net.minecraft.block.Block
 import net.minecraft.block.IBucketPickupHandler
 import net.minecraft.block.ILiquidContainer
-import net.minecraft.block.ITileEntityProvider
 import net.minecraft.block.material.Material
 import net.minecraft.block.state.IBlockState
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.fluid.Fluid
 import net.minecraft.fluid.IFluidState
 import net.minecraft.init.Fluids
-import net.minecraft.item.BlockItemUseContext
 import net.minecraft.state.EnumProperty
 import net.minecraft.state.StateContainer
 import net.minecraft.state.properties.BlockStateProperties
 import net.minecraft.tileentity.TileEntity
+import net.minecraft.util.EnumBlockRenderType
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.EnumHand
 import net.minecraft.util.math.BlockPos
@@ -47,6 +46,11 @@ class BlockSieve(name: String, properties: Properties = sieveProperties): BlockN
 
     override fun createTileEntity(state: IBlockState?, world: IBlockReader?): TileEntity? {
         return TileSieve()
+    }
+
+    @Suppress("OverridingDeprecatedMember")
+    override fun getRenderType(state: IBlockState): EnumBlockRenderType {
+        return EnumBlockRenderType.MODEL
     }
 
     @Suppress("OverridingDeprecatedMember")

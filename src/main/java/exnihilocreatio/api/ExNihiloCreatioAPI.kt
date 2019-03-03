@@ -1,9 +1,6 @@
 package exnihilocreatio.api
 
-import exnihilocreatio.api.registries.IBarrelBlackList
-import exnihilocreatio.api.registries.IToolRegistry
 import exnihilocreatio.registries.RegistryManager
-import net.minecraftforge.eventbus.api.Event
 
 object ExNihiloCreatioAPI {
     // Barrel Registries

@@ -1,9 +1,12 @@
-package exnihilocreatio.modules.compatibility
+package exnihilocreatio.recipes
 
 import exnihilocreatio.ENCBlocks
 import exnihilocreatio.ENCItems
+import exnihilocreatio.ExNihiloCreatio
 import exnihilocreatio.api.events.CrookRegistryEvent
 import exnihilocreatio.api.events.HammerRegistryEvent
+import exnihilocreatio.api.events.SieveRegistryEvent
+import exnihilocreatio.modules.sieve.properties.EnumMeshType
 import exnihilocreatio.utils.VanillaWoodTypes
 import net.minecraft.init.Blocks
 import net.minecraft.init.Items
@@ -69,6 +72,8 @@ object ENCDefaults {
         }
 
         //TODO consider adding sawdust from logs/planks
+
+        ExNihiloCreatio.logger.info("Registered Hammer Recipes")
     }
 
     @SubscribeEvent
@@ -87,5 +92,52 @@ object ENCDefaults {
         registry.register(Blocks.OAK_LEAVES, Items.APPLE, 0.1f)
         registry.register(Blocks.DARK_OAK_LEAVES, Items.APPLE, 0.3f)
 
+
+        ExNihiloCreatio.logger.info("Registered Crook Recipes")
+    }
+
+    @SubscribeEvent
+    fun registerSieve(event: SieveRegistryEvent) {
+        val registry = event.registry
+
+        // Pebbles
+        registry.register(EnumMeshType.STRING, Blocks.DIRT, ENCItems.PEBBLE_STONE, 0.2f)
+        registry.register(EnumMeshType.FLINT, Blocks.DIRT, ENCItems.PEBBLE_ANDESITE, 0.1f)
+        registry.register(EnumMeshType.FLINT, Blocks.DIRT, ENCItems.PEBBLE_GRANITE, 0.1f)
+        registry.register(EnumMeshType.FLINT, Blocks.DIRT, ENCItems.PEBBLE_DIORITE, 0.1f)
+
+        registry.register(EnumMeshType.STRING, Blocks.COARSE_DIRT, ENCItems.PEBBLE_STONE, 0.5f)
+        registry.register(EnumMeshType.FLINT, Blocks.COARSE_DIRT, ENCItems.PEBBLE_ANDESITE, 0.3f)
+        registry.register(EnumMeshType.FLINT, Blocks.COARSE_DIRT, ENCItems.PEBBLE_GRANITE, 0.3f)
+        registry.register(EnumMeshType.FLINT, Blocks.COARSE_DIRT, ENCItems.PEBBLE_DIORITE, 0.3f)
+
+        // Flint
+        registry.register(EnumMeshType.STRING, Blocks.GRAVEL, Items.FLINT, 0.3f)
+        registry.register(EnumMeshType.FLINT, Blocks.GRAVEL, Items.FLINT, 0.3f)
+        registry.register(EnumMeshType.FLINT, Blocks.GRAVEL, Items.FLINT, 0.2f)
+
+        // Vanilla Seeds
+        registry.register(EnumMeshType.STRING, Blocks.DIRT, Items.WHEAT_SEEDS, 0.05f)
+        registry.register(EnumMeshType.STRING, Blocks.DIRT, Items.BEETROOT_SEEDS, 0.05f)
+        registry.register(EnumMeshType.IRON, Blocks.DIRT, Items.MELON_SEEDS, 0.05f)
+        registry.register(EnumMeshType.IRON, Blocks.DIRT, Items.PUMPKIN_SEEDS, 0.05f)
+
+        // Tree Seeds
+        registry.register(EnumMeshType.STRING, Blocks.DIRT, ENCItems.SEED_OAK, 0.05f)
+        registry.register(EnumMeshType.STRING, Blocks.DIRT, ENCItems.SEED_BIRCH, 0.05f)
+        registry.register(EnumMeshType.FLINT, Blocks.DIRT, ENCItems.SEED_SPRUCE, 0.05f)
+        registry.register(EnumMeshType.FLINT, Blocks.DIRT, ENCItems.SEED_JUNGLE, 0.05f)
+        registry.register(EnumMeshType.IRON, Blocks.DIRT, ENCItems.SEED_ACACIA, 0.05f)
+        registry.register(EnumMeshType.IRON, Blocks.DIRT, ENCItems.SEED_DARK_OAK, 0.05f)
+
+        // Other Seeds
+        registry.register(EnumMeshType.FLINT, Blocks.DIRT, ENCItems.SEED_POTATO, 0.05f)
+        registry.register(EnumMeshType.FLINT, Blocks.DIRT, ENCItems.SEED_CARROT, 0.05f)
+        registry.register(EnumMeshType.FLINT, Blocks.SAND, ENCItems.SEED_CACTUS, 0.05f)
+        registry.register(EnumMeshType.FLINT, Blocks.SAND, ENCItems.SEED_REEDS, 0.05f)
+        registry.register(EnumMeshType.FLINT, Blocks.DIRT, ENCItems.SEED_GRASS, 0.05f)
+        registry.register(EnumMeshType.FLINT, Blocks.DIRT, ENCItems.SEED_MYCELIUM, 0.05f)
+
+        ExNihiloCreatio.logger.info("Registered Sieve Recipes")
     }
 }
