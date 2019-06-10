@@ -1,0 +1,134 @@
+item.hammer_wood.name=Martillo de Madera
+item.hammer_stone.name=Martillo de Piedra
+item.hammer_iron.name=Martillo de Hierro
+item.hammer_gold.name=Martillo de Oro
+item.hammer_diamond.name=Martillo de Diamante
+item.exnihilocreatio.hammer_tconstruct.name=Maza
+item.exnihilocreatio.hammer_tconstruct.desc=Destroza tanto tus bloques como a tus enemigos. Funciona como un martillo de Ex Nihilo.
+item.exnihilocreatio.crook_tconstruct.name=Cayado
+item.exnihilocreatio.crook_tconstruct.desc=¿A quién le dices callado? Funciona como un cayado de Ex Nihilo.
+
+item.crook_wood.name=Cayado de Madera
+item.crook_bone.name=Cayado de Hueso
+item.crook_stone.name=Cayado de Piedra
+item.crook_andesite.name=Cayado de Andesita
+item.crook_granite.name=Cayado de Andesita
+item.crook_diorite.name=Cayado de Diorita
+item.crook_clay_uncooked.name=Cayado de Arcilla cruda
+item.crook_clay.name=Cayado de Arcilla
+item.crook_prismarine.name=Cayado de Prismarina
+item.crook_purpur.name=Cayado Púrpura
+item.crook_blaze.name=Cayado Ardiente
+item.crook_diamond.name=Cayado punta de Diamante
+item.crook_gold.name=Cayado de Oro
+item.crook_iron.name=Cayado de Hierro
+item.crook_netherrack.name=Cayado de Infrapiedra
+
+item.item_pebble.stone.name=Guijarro
+item.item_pebble.granite.name=Guijarro de Granito
+item.item_pebble.diorite.name=Guijarro de Diorita
+item.item_pebble.andesite.name=Guijarro de Andesita
+
+item.item_material.removed.name=Eliminado del Mod
+item.item_material.porcelain_clay.name=Arcilla de Porcelana
+item.item_material.silkworm.name=Gusano de Seda
+item.item_material.grass_seeds.name=Semillas de Pasto
+item.item_material.ancient_spores.name=Esporas Ancestrales
+item.item_material.doll.name=Muñeca de Porcelana
+item.item_material.rod_stone.name=Vara de Piedra
+item.item_material.gear_stone.name=Engranaje de Piedra
+
+item.item_doll.blaze.name=Muñeca Ardiente
+item.item_doll.blaze.desc=Suéltela en un barril con lava para invocar un Blaze
+item.item_doll.enderman.name=Muñeca Tenebrosa
+item.item_doll.enderman.desc=Suéltela en un barril con witchwater para invocar un Enderman
+item.item_doll.shulker.name=Muñeca Flotante
+item.item_doll.shulker.desc=Suéltela en un barril con witchwater para invocar un Shulker
+item.item_doll.guardian.name=Muñeca Protectora
+item.item_doll.guardian.desc=Suéltela en un barril con agua para invocar a un Guardián
+item.item_doll.blizz.name=Muñeca Congelante
+item.item_doll.blizz.desc=Suéltela en un barril de Pyrotheum para invocar a un Blizz
+item.item_doll.blitz.name=Muñeca de la Ventisca
+item.item_doll.blitz.desc=Suéltela en un barril de Pyrotheum para invocar un Blitz
+item.item_doll.basalz.name=Muñeca Pulverizanteitem.item_doll.basalz.desc=Suéltela en un barril de Pyrotheum para invocar un Basalz
+item.item_doll.blueslime.name=Muñeca de la Ciénaga
+item.item_doll.blueslime.desc=Suéltala en un barril de leche para invocar un Slime Azul
+
+#This will look like '!!!{modid} si no está instalado, el ítem será inútil!!!'
+debug.mod_not_installed.desc=!!!%s si no está instalado, el ítem será inútil!!!
+
+item.item_cooked_silkworm.name=Gusano de Seda Cocinado
+
+item.item_seed_birch.name=Semilla de Abedul
+item.item_seed_oak.name=Semilla de Robleitem.item_seed_jungle.name=Semilla de Jungla
+item.item_seed_acacia.name=Semilla de Acacia
+item.item_seed_spruce.name=Semilla de Pino
+item.item_seed_carrot.name=Semilla de Zanahoria
+item.item_seed_potato.name=Tubérculos de Patata
+item.item_seed_sugarcane.name=Semillas de Caña de Azúcar
+item.item_seed_cactus.name=Semillas de Cáctus
+item.item_seed_darkoak.name=Semillas de Roble Oscuro
+item.item_seed_rubber.name=Semillas de Árbol de Caucho
+# Gets combined with the name in the OreBerry JSON
+item.exnihilocreatio.oreberry_seed.name=Semilla de Mineralibaya
+# Individual oreberries can have their own translations defined. These are the defaults.
+item.exnihilocreatio.oreberry_seed.iron.name=Semilla de Mineralibaya Ferrosa
+item.exnihilocreatio.oreberry_seed.gold.name=Semilla de Mineralibaya aurífera
+item.exnihilocreatio.oreberry_seed.copper.name=Semilla de Mineralibaya Cúprica
+item.exnihilocreatio.oreberry_seed.tin.name=Semilla de Mineralibaya Estánica
+item.exnihilocreatio.oreberry_seed.aluminum.name=Semilla de Mineralibaya Alúmica
+item.exnihilocreatio.oreberry_seed.aluminium.name=Semilla de Mineralibaya Alumínica
+
+tile.block_dust.name=Polvo
+tile.block_netherrack_crushed.name=Infrapiedra Molida
+tile.block_endstone_crushed.name=Piedra del Fin Molida
+tile.block_skystone_crushed.name=Piedra del Cielo Molida
+tile.block_diorite_crushed.name=Diorita Molida
+tile.block_andesite_crushed.name=Andesita Molida
+tile.block_granite_crushed.name=Granito Molido
+
+tile.block_barrel0.name=Barril de Madera
+tile.block_barrel1.name=Barril de Piedra
+
+tile.block_crucible.0.name=Crisol Crudo
+tile.block_crucible.1.name=Crisol
+tile.block_crucible_wood.name=Crisol de Madera
+
+tile.block_infested_leaves.name=Hojas Infestadas
+tile.block_infesting_leaves.name=Hojas (semi)infestadas
+
+tile.block_auto_sifter.name=Cernidor Automático
+tile.block_axle_stone.name=Eje de Piedra
+tile.block_grinder.name=Moledora [WIP! ¡Todavía no hace nada!]
+tile.block_waterwheel.name=Rueda de Agua
+tile.block_end_cake.name=Tarta del Fin
+tile.exnihilocreatio.hive.artificial_hive.name=Colmena Artificial
+tile.exnihilocreatio.hive.scented_hive.name=Comena Perfumada
+
+tile.block_sieve.name=Cernedoritem.item_mesh.1.name=Malla de Tela
+item.item_mesh.2.name=Malla de Pedernal
+item.item_mesh.3.name=Malla de Hierro
+item.item_mesh.4.name=Malla de Diamante
+
+orepiece.name=Retazo de Mineral
+orechunk.name=Trozo de Mineral
+oredust.name=Polvo de Mineral
+oreingot.name=Lingotefluid.witchwater=Witchwater
+
+jei.sieve.dropChance=Chance de Obtención
+jei.hammer.hammerLevel=Nivel de Martillo
+jei.hammer.hammerLevel.0=Madera
+jei.hammer.hammerLevel.1=Piedra
+jei.hammer.hammerLevel.2=Hierro
+jei.hammer.hammerLevel.3=Diamante
+jei.hammer.hammerLevel.4=Nivel Dios
+commands.enreloadconfig.confirm=Ex Nihilo Config Reloaded
+
+itemGroup.exNihilo=Ex Nihilo Creatio
+
+modifier.exnihilo_smashing.name=Aplaste
+modifier.exnihilo_smashing.desc=§r¡Martillo! ¡Aplasta!\n§rRompe cosas en otras más pequeñass
+
+enchantment.sieve_efficiency=Eficiencia del Cernedor
+enchantment.sieve_fortune=Suerte del Cernedor
+enchantment.sieve_luck_of_the_sea=Suerte Marina del Cernedor
